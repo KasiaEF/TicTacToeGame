@@ -5,15 +5,15 @@ import string
 # funkcja ma nie przyjmowac parametrów
 # return: funkcja ma zwracać położenie kółka x,y
 def player():
-    wyjatek = 1
-    while wyjatek:
-        wyjatek = 0
+    exception = 1
+    while exception:
+        exception = 0
         try:
             x = int(input("podaj wspolrzedne x: "))
             y = int(input("podaj wspolrzedne y: "))
         except Exception as e:
             print("Wspolrzedna to liczba, czopie!")
-            wyjatek = 1
+            exception = 1
 
     while True:
         if ((x >= 0 and x <=2) and (y >= 0 and y <= 2)):
