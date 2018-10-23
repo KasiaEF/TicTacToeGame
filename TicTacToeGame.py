@@ -5,14 +5,15 @@ import string
 # funkcja ma nie przyjmowac parametrów
 # return: funkcja ma zwracać położenie kółka x,y
 def player():
+
     exception = 1
     while exception:
         exception = 0
         try:
-            x = int(input("podaj wspolrzedne x: "))
-            y = int(input("podaj wspolrzedne y: "))
+            x = int(input("Enter coordinate x: "))
+            y = int(input("Enter coordinate y: "))
         except Exception as e:
-            print("Wspolrzedna to liczba, czopie!")
+            print("Coordinate is a number, man!")
             exception = 1
 
     while True:
@@ -20,7 +21,7 @@ def player():
             return x,y
 
         else:
-            print("Grasz w kolko - krzyzyk! Wybierz wspolrzedne: 0, 1 lub 2.")
+            print("You're playing in tic tac toe game. Choose coordinate: 0, 1 or 2.")
             x,y = player()
 
 
@@ -29,6 +30,7 @@ def player():
 # Funkcja potrzebuje planszę
 # return: ma nie zwracać
 def printBoard(stage):
+
     for i in range(len(stage)):
         for j in range(len(stage[i])):
         # print without new line
@@ -45,6 +47,7 @@ def checkStageForPlayer(x,y):
 
 
 def checkWinner(stage, pionek):
+
     if ((stage[0][0] == pionek and stage[0][1]== pionek and stage[0][2]== pionek) #
     or (stage[1][0] == pionek and stage[1][1]== pionek and stage[1][2]== pionek)#
     or (stage[2][0] == pionek and stage[2][1]== pionek and stage[2][2]== pionek)#
@@ -58,6 +61,7 @@ def checkWinner(stage, pionek):
         return False
 
 def checkDraw(stage):
+
     for i in range(len(stage)):
         for j in range(len(stage[i])):
             if (stage[i][j] == " "):
@@ -76,12 +80,12 @@ stage = [[' ', ' ', ' ',],  #plansza
 while (True):
 
 # gracz 1
-    print("Gracz 1: ")
+    print("Player 1: ")
     x, y = player()
     if checkStageForPlayer(x,y):
         stage[x][y] = 'o'
     else:
-        print("Miejsce jest zajete")
+        print("This place is already occupied.")
         continue
 
     movePlayer1 += 1
@@ -90,22 +94,22 @@ while (True):
 
     if(movePlayer1 >=3):
         if (checkWinner(stage, "o")):
-            print("Gracz 1: Brawo, wygrales!!")
+            print("Player 1: Congratulations, you win!!!")
             exit()
 
     if (checkDraw(stage)):
-        print("Ups, remis. Sprobuj ponownie.")
+        print("Ups, it's a draw. Try again.")
         exit()
 
 
 
 # gracz2
-    print("Gracz 2: ")
+    print("Player 2: ")
     x, y = player()
     if checkStageForPlayer(x, y):
         stage[x][y] = 'x'
     else:
-        print("Miejsce jest zajete")
+        print("This place is already occupied.")
         continue
 
     movePlayer2 += 1
@@ -114,11 +118,11 @@ while (True):
 
     if(movePlayer2 >=3):
         if (checkWinner(stage, "x")):
-            print("Gracz 1: Brawo, wygrales!!")
+            print("Player 2: Congratulations, you win!!!")
             exit()
 
     if (checkDraw(stage)):
-        print("Ups, remis. Sprobuj ponownie.")
+        print("Ups, it's a draw. Try again.")
         exit()
 
 
