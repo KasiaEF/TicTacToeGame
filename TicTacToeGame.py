@@ -48,13 +48,13 @@ def checkStageForPlayer(x,y):
 
 def checkWinner(stage, pionek):
 
-    if ((stage[0][0] == pionek and stage[0][1]== pionek and stage[0][2]== pionek) #
-    or (stage[1][0] == pionek and stage[1][1]== pionek and stage[1][2]== pionek)#
-    or (stage[2][0] == pionek and stage[2][1]== pionek and stage[2][2]== pionek)#
-    or (stage[0][0] == pionek and stage[1][0]== pionek and stage[2][0]== pionek)#
-    or (stage[0][1] == pionek and stage[1][1]== pionek and stage[2][1]== pionek)#
-    or (stage[0][2] == pionek and stage[1][2]== pionek and stage[2][2]== pionek)#
-    or (stage[0][0] == pionek and stage[1][1]== pionek and stage[2][2]== pionek)#
+    if ((stage[0][0] == pionek and stage[0][1]== pionek and stage[0][2]== pionek)
+    or (stage[1][0] == pionek and stage[1][1]== pionek and stage[1][2]== pionek)
+    or (stage[2][0] == pionek and stage[2][1]== pionek and stage[2][2]== pionek)
+    or (stage[0][0] == pionek and stage[1][0]== pionek and stage[2][0]== pionek)
+    or (stage[0][1] == pionek and stage[1][1]== pionek and stage[2][1]== pionek)
+    or (stage[0][2] == pionek and stage[1][2]== pionek and stage[2][2]== pionek)
+    or (stage[0][0] == pionek and stage[1][1]== pionek and stage[2][2]== pionek)
     or (stage[2][0] == pionek and stage[1][1]== pionek and stage[0][2]== pionek)):
         return True
     else:
@@ -69,6 +69,7 @@ def checkDraw(stage):
     return True
 
 #########################################
+print("Welcome in Tic Tac Toe Game". Let's play a game!!!')
 
 movePlayer1 = 0
 movePlayer2 = 0
