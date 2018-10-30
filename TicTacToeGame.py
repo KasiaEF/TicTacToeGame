@@ -70,63 +70,71 @@ def checkDraw(stage):
 
 #########################################
 
-movePlayer1 = 0
-movePlayer2 = 0
+restart = 'Yes'
+while restart in ('Yes', 'yes','y','Y'):
 
-stage = [[' ', ' ', ' ',],  #plansza
-        [' ', ' ', ' '],
-        [' ', ' ', ' ']]
+    print("Welcome in TiC Tac Toe Game! Let's play a game!")
 
-while (True):
+    movePlayer1 = 0
+    movePlayer2 = 0
 
-# gracz 1
-    print("Player 1: ")
-    x, y = player()
-    if checkStageForPlayer(x,y):
-        stage[x][y] = 'o'
-    else:
-        print("This place is already occupied.")
-        continue
+    stage = [[' ', ' ', ' ', ],  # plansza
+             [' ', ' ', ' '],
+             [' ', ' ', ' ']]
 
-    movePlayer1 += 1
+    while (True):
 
-    printBoard(stage)
+    # gracz 1
+        print("Player 1: ")
+        x, y = player()
+        if checkStageForPlayer(x,y):
+            stage[x][y] = 'o'
+        else:
+            print("This place is already occupied.")
+            continue
 
-    if(movePlayer1 >=3):
-        if (checkWinner(stage, "o")):
-            print("Player 1: Congratulations, you win!!!")
-            exit()
+        movePlayer1 += 1
 
-    if (checkDraw(stage)):
-        print("Ups, it's a draw. Try again.")
+        printBoard(stage)
+
+        if(movePlayer1 >=3):
+            if (checkWinner(stage, "o")):
+                print("Player 1: Congratulations, you win!!!")
+                break
+
+        if (checkDraw(stage)):
+            print("Ups, it's a draw. Try again.")
+            break
+
+
+
+    # gracz2
+        print("Player 2: ")
+        x, y = player()
+        if checkStageForPlayer(x, y):
+            stage[x][y] = 'x'
+        else:
+            print("This place is already occupied.")
+            continue
+
+        movePlayer2 += 1
+
+        printBoard(stage)
+
+        if(movePlayer2 >=3):
+            if (checkWinner(stage, "x")):
+                print("Player 2: Congratulations, you win!!!")
+                break
+
+
+        if (checkDraw(stage)):
+            print("Ups, it's a draw. Try again.")
+            break
+
+
+    restart = input("Would you like to try again? Choose yes/no.")
+    if restart in ('no','No','n','N'):
+        print("Ok, thank you!")
         exit()
-
-
-
-# gracz2
-    print("Player 2: ")
-    x, y = player()
-    if checkStageForPlayer(x, y):
-        stage[x][y] = 'x'
-    else:
-        print("This place is already occupied.")
-        continue
-
-    movePlayer2 += 1
-
-    printBoard(stage)
-
-    if(movePlayer2 >=3):
-        if (checkWinner(stage, "x")):
-            print("Player 2: Congratulations, you win!!!")
-            exit()
-
-    if (checkDraw(stage)):
-        print("Ups, it's a draw. Try again.")
-        exit()
-
-
-
-
 
 
